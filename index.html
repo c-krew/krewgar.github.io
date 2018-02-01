@@ -7,7 +7,7 @@
 <body>
     <div class="Intro">
         <h1 align="center">Trench Offhaul and Import Calculator</h1>
-        <p align="center">This app allows the user to calculate how much soil will be excavated when installing a pipe and how much soil will need
+        <p>This app allows the user to calculate how much soil will be excavated when installing a pipe and how much soil will need
         to imported for bedding and backfill.</p>
     </div>
     <br>
@@ -16,10 +16,7 @@
     <br>
     <br>
     <br>
-    <div class="map">
-        <map name="map" src="https://geology.com/world/world-map.gif">
-
-        </map>
+    <div id="map" style="width:400px;height:400px;">
     </div>
     <br>
     <br>
@@ -39,5 +36,17 @@
     <div class="results">
         <p>Results will be displayed here.</p>
     </div>
+
+    <script>
+    function myMap() {
+        var mapOptions = {
+            center: new google.maps.LatLng(51.5, -0.12),
+            zoom: 10,
+            mapTypeId: google.maps.MapTypeId.HYBRID
+        }
+    var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+    }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&callback=myMap"></script>
 </body>
 </html>
