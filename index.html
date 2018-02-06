@@ -4,17 +4,26 @@
     <meta charset="UTF-8">
     <title>Trench Offhaul and Import Calculator</title>
     <style>
-    #map {
+        #map {
             height:400px;
             width: 800px;
             margin-left: auto;
             margin-right: auto;
             }
+        #buttons {
+            align:center;
+            }
+        #title {
+            align:center;
+            }
+        #results {
+            align:center;
+            }
     </style>
 </head>
 <body>
     <div class="Intro">
-        <h1 align="center">Trench Offhaul and Import Calculator</h1>
+        <h1 id="title">Trench Offhaul and Import Calculator</h1>
         <p>This app allows the user to calculate how much soil will be excavated when installing a pipe and how much soil will need
         to imported for bedding and backfill.</p>
     </div>
@@ -24,12 +33,12 @@
     </div>
     <br>
     <br>
-    <div class="buttons">
+    <div id="buttons">
         <button type="button">Calculate Soil Quantities</button>
     </div>
     <br>
     <br>
-    <div class="results">
+    <div id="results">
         <p>Results will be displayed here.</p>
     </div>
 
