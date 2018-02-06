@@ -19,6 +19,13 @@
         #results {
             align:center;
             }
+        #table {
+            border-collapse: collapse;
+        }
+
+        #table, th, td {
+            border: 1px solid black;
+        }
     </style>
 </head>
 <body>
@@ -39,7 +46,19 @@
     <br>
     <br>
     <div id="results">
-        <p>Results will be displayed here.</p>
+        <h2>Results</h2>
+        <table id="resulttable">
+          <tr>
+            <th>Export</th>
+            <th>Bedding Import</th> 
+            <th>Backfill Import</th>
+          </tr>
+          <tr>
+            <td>1000 CY</td>
+            <td>300 CY</td> 
+            <td>650 CY</td>
+          </tr>
+        </table>
     </div>
 
     <script>
