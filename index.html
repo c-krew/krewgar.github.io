@@ -18,16 +18,52 @@
             margin-left: auto;
             margin-right: auto;
         }
-
         #resulttable, th, td {
             border: 1px solid black;
+            background-color: white;
+        }
+
+        body {
+            background-color: lightblue;
         }
     </style>
+    <script src="https://js.arcgis.com/4.6/"></script>
+    <link rel="stylesheet" href="https://js.arcgis.com/4.6/esri/css/main.css">
+    <script>
+        require([
+            "esri/Map",
+            "esri/layers/MapImageLayer",
+            "esri/views/MapView",
+            "dojo/domReady!",
+        ], function(Map, MapImageLayer, MapView) {
+            var map = new Map ({
+                basemap: "streets"
+            });
+
+            var municipalities_lyr = new MapImageLayer ({
+                url: "http://geoserver2.byu.edu/arcgis/rest/services/PawneeRangers/Municipalities/MapServer"
+            });
+
+            var dem_lyr = new MapImageLayer ({
+                url: "http://geoserver2.byu.edu/arcgis/rest/services/PawneeRangers/DEM/MapServer"
+            });
+
+            map.layers.add(dem_lyr);
+            map.layers.add(municipalities_lyr);
+
+            var view = new MapView ({
+                container: "map",
+                map: map,
+                center: [-112.1,40],
+                zoom: 8
+            });
+        });
+    </script>
 </head>
 <body>
     <div class="Intro">
         <h1 id="title" align="center">Trench Offhaul and Import Calculator</h1>
-        <p>This app allows the user to calculate how much soil will be excavated when installing a pipe and how much soil will need
+        <p align="center">This app allows the user to calculate how much soil will be excavated when installing a pipe and how much soil will need
         to imported for bedding and backfill.</p>
     </div>
     <br>
@@ -45,27 +81,16 @@
         <table id="resulttable">
           <tr>
             <th>Export</th>
-            <th>Bedding Import</th> 
+            <th>Bedding Import</th>
             <th>Backfill Import</th>
           </tr>
           <tr>
             <td>1000 CY</td>
-            <td>300 CY</td> 
+            <td>300 CY</td>
             <td>650 CY</td>
           </tr>
         </table>
     </div>
 
-    <script>
-    function myMap() {
-        var mapOptions = {
-            center: new google.maps.LatLng(51.5, -0.12),
-            zoom: 10,
-            mapTypeId: google.maps.MapTypeId.HYBRID
-        }
-    var map = new google.maps.Map(document.getElementById("map"), mapOptions);
-    }
-    </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBrpaebmoBNwnQrKDm6uWCtNfrpyZKzc28&callback=myMap"></script>
 </body>
 </html>
